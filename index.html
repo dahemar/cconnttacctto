@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto</title>
-    
     <!-- Base URL for relative links (dynamic for local and GitHub Pages) -->
     <base href="/">
 
@@ -24,7 +23,7 @@
             margin: 0;
             padding-bottom: 100px; /* Space for fixed nav */
         }
-    
+
         /* Image Section */
         .image-section {
             display: flex;
@@ -34,17 +33,52 @@
             padding: 20px;
             margin-top: 20px;
         }
-    
+
         .image-container {
             display: flex;
             justify-content: center;
             align-items: center;
+            overflow: hidden; /* For slideshow images */
+            position: relative; /* For absolute positioning within */
         }
-    
+
+        .image-container .slideshow-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .image-container .slideshow-container img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out, filter 0.4s ease-in-out; /* Smooth fade with blur */
+            filter: blur(0px);
+        }
+
+        .image-container .slideshow-container img.active {
+            opacity: 1;
+            filter: blur(0px);
+        }
+
+        .image-container .slideshow-container img.fade-out {
+            opacity: 0;
+            filter: blur(2px);
+        }
+
+        .image-container .slideshow-container img.fade-in {
+            opacity: 1;
+            filter: blur(0px);
+        }
+
         .mobile-only {
             display: none; /* Hide mobile image by default */
         }
-    
+
         /* Navigation Bar */
         nav {
             position: fixed;
@@ -56,28 +90,28 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             z-index: 10; /* Ensure the nav bar is above other elements */
         }
-    
+
         .nav-item {
             font-size: 24px;
             font-weight: 300;
             color: black;
         }
-    
+
         .active-nav-item {
             color: #e74c3c; /* Red color for the active nav item */
         }
-    
+
         /* Mobile Fullscreen Image - Fixed and No Scrolling */
         @media (max-width: 767px) {
             html, body {
                 height: 100%;
                 overflow: hidden; /* Prevent scrolling */
             }
-    
-             .desktop-only {
-                 display: none; /* Hide all desktop images */
-             }
-    
+
+            .desktop-only {
+                display: none; /* Hide all desktop images */
+            }
+
             .mobile-only {
                 display: block;
                 width: 100vw; /* Full viewport width */
@@ -87,29 +121,42 @@
                 left: 0;
                 z-index: -1; /* Keep image behind other content */
             }
-    
+
             .slideshow-container {
-              position: absolute;
-              top: 0;
-              left: 0;
-              width: 100vw; /* Full viewport width */
-              height: 100vh; /* Full viewport height */
-              z-index: -1; /* Keep behind other elements */
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100vw; /* Full viewport width */
+                height: 100vh; /* Full viewport height */
+                z-index: -1; /* Keep behind other elements */
             }
-    
-           /* Two image layers for smooth crossfade */
-           .slideshow-container img {
-               position: absolute;
-               width: 100%;
-               height: 100%;
-               object-fit: cover;
-               opacity: 0;
-               transition: opacity 2s ease-in-out; /* Smooth fade over 2s */
-           }
-    
+
+            /* Two image layers for smooth crossfade */
+            .slideshow-container img {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                opacity: 0;
+                transition: opacity 2s ease-in-out, filter 1s ease-in-out; /* Smooth fade with blur */
+                filter: blur(0px);
+            }
+
             .slideshow-container img.active {
-              opacity: 1; /* Show active image */
+                opacity: 1;
+                filter: blur(0px);
             }
+
+            .slideshow-container img.fade-out {
+                opacity: 0;
+                filter: blur(2px);
+            }
+
+            .slideshow-container img.fade-in {
+                opacity: 1;
+                filter: blur(0px);
+            }
+
             .image-section {
                 padding: 0;
                 margin: 0;
@@ -118,62 +165,106 @@
                 justify-content: center;
                 align-items: center;
             }
-    
+
             .nav-item {
                 font-size: 20px; /* Adjust nav size for mobile */
             }
         }
+
+        /* Desktop Images */
+        @media (min-width: 768px) {
+            .image-section {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 8px;
+                padding: 20px;
+                margin-top: 20px;
+                height: 100vh; /* Ensure section fills full vertical space */
+            }
+
+            .image-container {
+                width: 100%; /* Make each container take up the full width available */
+                height: 100vh; /* Make each container fill the full height */
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                overflow: hidden; /* Ensures images stay within bounds */
+                position: relative;
+            }
+
+            .image-container img {
+                width: 100%; /* Make the image fill the container horizontally */
+                height: 100%; /* Make the image fill the container vertically */
+                object-fit: cover; /* Ensure the image covers the entire container */
+            }
+
+            .nav-item {
+                font-size: 48px; /* Larger font size for desktop */
+            }
+        }
+
         /* Target older iphones */
         @media (max-width: 375px) {
             .nav-item {
                 font-size: 16px; /* Even smaller text for old iPhones */
             }
         }
-    
-        /* Desktop Navigation */
-        @media (min-width: 768px) {
-            .nav-item {
-                font-size: 48px;
-            }
-        }
     </style>
 </head>
 <body class="bg-white text-black">
-
     <!-- Image Section -->
     <div class="image-section">
         <!-- Mobile-Only Fullscreen Slideshow -->
         <div class="mobile-only">
             <div class="slideshow-container">
-                <img src="cconnttacctto/images/17.jpg" class="slideshow-image active" alt="Slideshow image">
-                <img src="cconnttacctto/images/5.jpg" class="slideshow-image" alt="Slideshow image">
-                <img src="cconnttacctto/images/21.jpg" class="slideshow-image" alt="Slideshow image">
-                <img src="cconnttacctto/images/22.jpg" class="slideshow-image" alt="Slideshow image">
-                <img src="cconnttacctto/images/16.jpg" class="slideshow-image" alt="Slideshow image">
-                <img src="cconnttacctto/images/3.jpg" class="slideshow-image" alt="Slideshow image">
-                <img src="cconnttacctto/images/2.jpg" class="slideshow-image" alt="Slideshow image">
-                <img src="cconnttacctto/images/4.jpg" class="slideshow-image" alt="Slideshow image">
-                <img src="cconnttacctto/images/6.jpg" class="slideshow-image" alt="Slideshow image">
-                <img src="cconnttacctto/images/7.jpg" class="slideshow-image" alt="Slideshow image">
-                <img src="cconnttacctto/images/14.jpg" class="slideshow-image" alt="Slideshow image">
+                <img src="images/17.jpg" class="slideshow-image active" alt="Slideshow image">
+                <img src="images/5.jpg" class="slideshow-image" alt="Slideshow image">
+                <img src="images/21.jpg" class="slideshow-image" alt="Slideshow image">
+                <img src="images/22.jpg" class="slideshow-image" alt="Slideshow image">
+                <img src="images/16.jpg" class="slideshow-image" alt="Slideshow image">
+                <img src="images/3.jpg" class="slideshow-image" alt="Slideshow image">
+                <img src="images/2.jpg" class="slideshow-image" alt="Slideshow image">
+                <img src="images/4.jpg" class="slideshow-image" alt="Slideshow image">
+                <img src="images/6.jpg" class="slideshow-image" alt="Slideshow image">
+                <img src="images/7.jpg" class="slideshow-image" alt="Slideshow image">
+                <img src="images/14.jpg" class="slideshow-image" alt="Slideshow image">
             </div>
         </div>
-        
+
         <!-- Desktop Images (Hidden on Mobile) -->
         <div class="image-container w-[300px] aspect-w-1 aspect-h-1 bg-gray-300 desktop-only">
-            <img src="cconnttacctto/images/17.jpg" alt="Assorted vintage antiques displayed on a table" class="w-full h-full object-cover">
+            <div class="slideshow-container">
+                <img src="images/17.jpg" class="slideshow-image active" alt="Slideshow image 7">
+                <img src="images/21.jpg" class="slideshow-image" alt="Slideshow image 8">
+            </div>
         </div>
+
         <div class="image-container w-[200px] aspect-w-4 aspect-h-5 bg-gray-300 desktop-only">
-            <img src="cconnttacctto/images/5.jpg" alt="Vintage collectibles" class="w-full h-full object-cover">
+            <div class="slideshow-container">
+                <img src="images/5.jpg" class="slideshow-image active" alt="Slideshow image 1">
+                <img src="images/14b.jpg" class="slideshow-image" alt="Slideshow image 2">
+                <img src="images/7.jpg" class="slideshow-image" alt="Slideshow image 3">
+            </div>
         </div>
+
         <div class="image-container w-[250px] aspect-w-1 aspect-h-1 bg-gray-300 desktop-only">
-            <img src="cconnttacctto/images/18.jpg" alt="Placeholder Image 1" class="w-full h-full object-cover">
+            <img src="images/18b.jpg" alt="Placeholder Image 1" class="w-full h-full object-cover">
         </div>
+
         <div class="image-container w-[180px] aspect-w-1 aspect-h-1 bg-gray-300 desktop-only">
-            <img src="cconnttacctto/images/20.jpg" alt="Placeholder Image 2" class="w-full h-full object-cover">
+            <div class="slideshow-container">
+                <img src="images/20.jpg" class="slideshow-image active" alt="Slideshow image 4">
+                <img src="images/4.jpg" class="slideshow-image" alt="Slideshow image 5">
+                <img src="images/22.jpg" class="slideshow-image" alt="Slideshow image 6">
+            </div>
         </div>
+
         <div class="image-container w-[320px] aspect-w-1 aspect-h-1 bg-gray-300 desktop-only">
-            <img src="cconnttacctto/images/3.jpg" alt="Placeholder Image 3" class="w-full h-full object-cover">
+            <div class="slideshow-container">
+                <img src="images/3b.jpg" class="slideshow-image active" alt="Slideshow image 9">
+                <img src="images/15.jpg" class="slideshow-image" alt="Slideshow image 10">
+            </div>
         </div>
     </div>
 
@@ -198,25 +289,49 @@
     <!-- JavaScript for Mobile Slideshow -->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            const images = document.querySelectorAll(".slideshow-image");
-            let currentIndex = 0;
+            // Function to handle slideshow for all slideshow containers.
+            function setupSlideshow(container, delay = 0) {
+                const images = container.querySelectorAll(".slideshow-image");
+                let currentIndex = 0;
+                let transitionDuration = (window.innerWidth < 768) ? 4500 : 5500; // slower speed for desktop, faster for mobile
 
-            function changeImage() {
-                // Fade out the current image
-                images[currentIndex].classList.remove("active");
+                function changeImage() {
+                    images[currentIndex].classList.add("fade-out"); // start fade out
 
-                // Calculate the next index (loop back to 0 if it's the last image)
-                let nextIndex = (currentIndex + 1) % images.length;
+                    setTimeout(() => {
+                        images[currentIndex].classList.remove("active", "fade-out");
 
-                // Fade in the next image
-                images[nextIndex].classList.add("active");
+                        let nextIndex = (currentIndex + 1) % images.length;
 
-                // Update the current index
-                currentIndex = nextIndex;
+                        images[nextIndex].classList.add("active", "fade-in");
+                        setTimeout(() => {
+                            images[nextIndex].classList.remove("fade-in");
+                        }, 600);
+
+                        currentIndex = nextIndex;
+                    }, 400);
+                }
+
+                if (images.length > 1) {
+                    // Add an initial delay to stagger the slideshows
+                    setTimeout(() => {
+                        setInterval(changeImage, transitionDuration);
+                    }, delay);
+                }
             }
 
-            // Start the cycle with a 4-second interval
-            setInterval(changeImage, 4000); // Change every 4 seconds
+            // For mobile slideshow
+            const mobileSlideshowContainer = document.querySelector(".mobile-only .slideshow-container");
+            if (mobileSlideshowContainer) {
+                setupSlideshow(mobileSlideshowContainer);
+            }
+
+            // Setup slideshow for each container in desktop mode with staggered delays
+            const desktopSlideshowContainers = document.querySelectorAll('.image-container .slideshow-container');
+            desktopSlideshowContainers.forEach((container, index) => {
+                const delay = index * 1000; // Stagger delays by 1 second for each container
+                setupSlideshow(container, delay);
+            });
         });
 
         // Set the base URL depending on the environment (local vs GitHub Pages)
@@ -226,6 +341,5 @@
             document.querySelector('base').setAttribute('href', '/cconnttacctto/');
         }
     </script>
-
 </body>
 </html>
