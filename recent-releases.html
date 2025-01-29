@@ -6,7 +6,6 @@
     <title>Recent Releases - Contacto</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    
     <!-- Google Font: Diatype Variable -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -57,6 +56,7 @@
             cursor: pointer;
             font-weight: 300;
             color: black;
+            width: 300px; /* Ancho fijo para escritorio */
         }
 
         .release-text {
@@ -66,13 +66,19 @@
         .release-submenu {
             display: flex;
             align-items: center;
+            justify-content: center; /* Centra el contenido horizontalmente */
             gap: 1rem;
-            margin-top: 8px;
+            margin-top: 20px; /* Ajusta este valor según lo que necesites */
             font-size: 16px;
             color: #666;
             opacity: 0;
             transform: translateX(20px);
             transition: opacity 0.3s ease, transform 0.3s ease;
+            position: absolute; /* Posiciona el menú flotante de manera absoluta */
+            left: 50%; /* Lo coloca en el centro horizontal */
+            transform: translateX(-50%); /* Lo centra correctamente */
+            width: 100%; /* Asegúrate de que ocupe el ancho completo del contenedor */
+            text-align: center; /* Centra el texto dentro del menú */
         }
 
         .release-submenu a {
@@ -86,7 +92,7 @@
 
         .release-item:hover .release-submenu {
             opacity: 1;
-            transform: translateX(0);
+            transform: translateX(-50%); /* Mantén el centrado al hacer hover */
         }
 
         .release-image {
@@ -109,7 +115,7 @@
         .release-list li:last-child {
             margin-bottom: 60px; /* Reduced space for the last item */
         }
-        
+
         .release-list {
             text-align: center;
             margin-top: 50px;
@@ -139,6 +145,7 @@
                 text-align: center;
                 margin-top: 300px;
                 margin-bottom: 300px;
+                width: auto; /* Ancho automático en móvil */
             }
 
             .release-submenu {
@@ -148,6 +155,9 @@
                 margin-top: 40px;
                 opacity: 1 !important; /* Ensure it's fully visible */
                 transform: translateX(0) !important; /* Remove the sliding effect */
+                position: static; /* Restaura el posicionamiento en móvil */
+                left: auto;
+                transform: none;
             }
 
             /* Adjust the position of the release name on mobile */
@@ -165,9 +175,9 @@
 
         /* Target older iphones */
         @media (max-width: 375px) {
-           .nav-item {
-               font-size: 16px;
-           }
+            .nav-item {
+                font-size: 16px;
+            }
         }
     </style>
 </head>
@@ -184,7 +194,7 @@
                     </div>
                     <img src="images/ASTRAY.jpg" alt="ASTRAY Artwork" class="release-image">
                 </li>
-                <li class="relative release-item">
+                <li class="relative release-item enemy-water">
                     <span class="release-text">enemy water</span>
                     <div class="release-submenu">
                         <a href="https://soundcloud.com/cconnttacctto/enemy-water" class="release-submenu-item">soundcloud</a>
@@ -192,7 +202,7 @@
                     </div>
                     <img src="images/enemy-water.jpg" alt="Enemy Water Artwork" class="release-image">
                 </li>
-                <li class="relative release-item">
+                <li class="relative release-item days-365">
                     <span class="release-text">365 days</span>
                     <div class="release-submenu">
                         <a href="https://soundcloud.com/cconnttacctto/365-days" class="release-submenu-item">soundcloud</a>
@@ -203,16 +213,15 @@
                 <li class="relative release-item">
                     <span class="release-text">Pale Light</span>
                     <div class="release-submenu">
-                         <a href="https://soundcloud.com/cconnttacctto/sets/pale-light-with-clarice" class="release-submenu-item">soundcloud</a>
-                         <a href="https://claricecontacto.bandcamp.com/album/pale-light" class="release-submenu-item">bandcamp</a>
-                         <a href="https://www.ninaprotocol.com/releases/clarice-contacto-pale-light" class="release-submenu-item">nina protocol</a>
-                     </div>
+                        <a href="https://soundcloud.com/cconnttacctto/sets/pale-light-with-clarice" class="release-submenu-item">soundcloud</a>
+                        <a href="https://claricecontacto.bandcamp.com/album/pale-light" class="release-submenu-item">bandcamp</a>
+                        <a href="https://www.ninaprotocol.com/releases/clarice-contacto-pale-light" class="release-submenu-item">nina protocol</a>
+                    </div>
                     <img src="images/Pale-Light.jpg" alt="Pale Light Artwork" class="release-image">
                 </li>
             </ul>
         </div>
     </div>
-    
     <nav>
         <ul class="flex items-center justify-between text-[24px] font-light sm:text-[48px]">
             <li><a href="index.html" class="nav-item">spirit</a></li>
