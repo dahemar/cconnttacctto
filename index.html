@@ -24,7 +24,7 @@
             margin: 0;
             padding-bottom: 100px; /* Space for fixed nav */
         }
-
+    
         /* Image Section */
         .image-section {
             display: flex;
@@ -34,17 +34,17 @@
             padding: 20px;
             margin-top: 20px;
         }
-
+    
         .image-container {
             display: flex;
             justify-content: center;
             align-items: center;
         }
-
+    
         .mobile-only {
             display: none; /* Hide mobile image by default */
         }
-
+    
         /* Navigation Bar */
         nav {
             position: fixed;
@@ -56,28 +56,28 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             z-index: 10; /* Ensure the nav bar is above other elements */
         }
-
+    
         .nav-item {
             font-size: 24px;
             font-weight: 300;
             color: black;
         }
-
+    
         .active-nav-item {
             color: #e74c3c; /* Red color for the active nav item */
         }
-
+    
         /* Mobile Fullscreen Image - Fixed and No Scrolling */
         @media (max-width: 767px) {
             html, body {
                 height: 100%;
                 overflow: hidden; /* Prevent scrolling */
             }
-
+    
              .desktop-only {
                  display: none; /* Hide all desktop images */
              }
-
+    
             .mobile-only {
                 display: block;
                 width: 100vw; /* Full viewport width */
@@ -87,7 +87,7 @@
                 left: 0;
                 z-index: -1; /* Keep image behind other content */
             }
-
+    
             .slideshow-container {
               position: absolute;
               top: 0;
@@ -96,7 +96,7 @@
               height: 100vh; /* Full viewport height */
               z-index: -1; /* Keep behind other elements */
             }
-
+    
            /* Two image layers for smooth crossfade */
            .slideshow-container img {
                position: absolute;
@@ -106,7 +106,7 @@
                opacity: 0;
                transition: opacity 2s ease-in-out; /* Smooth fade over 2s */
            }
-
+    
             .slideshow-container img.active {
               opacity: 1; /* Show active image */
             }
@@ -118,12 +118,18 @@
                 justify-content: center;
                 align-items: center;
             }
-
+    
             .nav-item {
                 font-size: 20px; /* Adjust nav size for mobile */
             }
         }
-
+        /* Target older iphones */
+        @media (max-width: 375px) {
+            .nav-item {
+                font-size: 16px; /* Even smaller text for old iPhones */
+            }
+        }
+    
         /* Desktop Navigation */
         @media (min-width: 768px) {
             .nav-item {
