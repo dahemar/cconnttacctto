@@ -1,22 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Content Manager</title>
-    <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
-    <script>
-        // Initialize Netlify CMS
-        CMS.init({
-            config: {
-                backend: {
-                    name: 'git-gateway',
-                },
-                load_config_file: true, // Load configuration from config.yml
-            }
-        });
-    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/netlify-cms@2.9.0/dist/netlify-cms.css">
 </head>
 <body>
+    <div id="nc-root"></div>
+    <script src="https://cdn.jsdelivr.net/npm/netlify-cms@2.9.0/dist/netlify-cms.js"></script>
+    <script>
+        CMS.init();
+    </script>
 </body>
 </html>
