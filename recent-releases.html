@@ -56,7 +56,8 @@
             cursor: pointer;
             font-weight: 300;
             color: black;
-            width: 300px; /* Ancho fijo para escritorio */
+            width: 200px; /* Ancho reducido para escritorio */
+            margin-right: 40px; /* Espacio entre releases */
         }
 
         .release-text {
@@ -101,7 +102,7 @@
             left: 0;
             right: 0;
             margin: 0 auto;
-            max-width: 200px;
+            max-width: 150px; /* Imagen más pequeña para ajustarse al nuevo ancho */
             opacity: 0;
             transition: opacity 1s ease;
             will-change: opacity, transform; /* Improve performance */
@@ -119,6 +120,9 @@
         .release-list {
             text-align: center;
             margin-top: 50px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: nowrap; /* Evita que se envuelvan en múltiples líneas */
         }
 
         /* Mobile-specific styling */
@@ -140,13 +144,33 @@
                 font-size: 20px;
             }
 
+            .release-list {
+                display: flex; /* Mantiene flex en móvil para poder usar flex-direction */
+                flex-direction: column-reverse; /* Invierte el orden */
+                text-align: center;
+            }
+
             .release-item {
                 display: block;
                 text-align: center;
                 margin-top: 300px;
                 margin-bottom: 300px;
                 width: auto; /* Ancho automático en móvil */
+                margin-right: 0; /* Elimina el margen derecho en móvil */
             }
+            
+
+            
+            /* Show "nina protocol" on mobile, hide "nina" */
+            .nina-desktop {
+                display: none;
+            }
+            
+            .nina-mobile {
+                display: inline;
+            }
+            
+
 
             .release-submenu {
                 display: block;
@@ -171,6 +195,15 @@
             .nav-item {
                 font-size: 48px;
             }
+            
+            /* Show "nina" on desktop, hide "nina protocol" */
+            .nina-desktop {
+                display: inline;
+            }
+            
+            .nina-mobile {
+                display: none;
+            }
         }
 
         /* Target older iphones */
@@ -186,38 +219,61 @@
         <div class="min-h-screen flex justify-center items-center release-list">
             <ul class="text-[20px]">
                 <li class="relative release-item">
-                    <span class="release-text">ASTRAY</span>
+                    <span class="release-text">wild goose</span>
                     <div class="release-submenu">
-                        <a href="https://soundcloud.com/deardogs/sets/contacto-astray-dear003" class="release-submenu-item">soundcloud</a>
-                        <a href="https://deardogs.bandcamp.com/album/astray" class="release-submenu-item">bandcamp</a>
-                        <a href="https://www.ninaprotocol.com/releases/contacto-astray-cji7iioh8zxz" class="release-submenu-item">nina protocol</a>
+                        <a href="https://soundcloud.com/cconnttacctto/fbec6d87-a15f-40d5-9044-d67e55367410" class="release-submenu-item">soundcloud</a>
+                        <a href="https://www.ninaprotocol.com/releases/contacto-wild-goose" class="release-submenu-item">
+                            <span class="nina-desktop">nina</span>
+                            <span class="nina-mobile">nina protocol</span>
+                        </a>
                     </div>
-                    <img src="images/ASTRAY.jpg" alt="ASTRAY Artwork" class="release-image">
-                </li>
-                <li class="relative release-item enemy-water">
-                    <span class="release-text">enemy water</span>
-                    <div class="release-submenu">
-                        <a href="https://soundcloud.com/cconnttacctto/enemy-water" class="release-submenu-item">soundcloud</a>
-                        <a href="https://www.ninaprotocol.com/releases/contacto-enemy-water" class="release-submenu-item">nina protocol</a>
-                    </div>
-                    <img src="images/enemy-water.jpg" alt="Enemy Water Artwork" class="release-image">
-                </li>
-                <li class="relative release-item days-365">
-                    <span class="release-text">365 days</span>
-                    <div class="release-submenu">
-                        <a href="https://soundcloud.com/cconnttacctto/365-days" class="release-submenu-item">soundcloud</a>
-                        <a href="https://www.ninaprotocol.com/releases/contacto-365-days" class="release-submenu-item">nina protocol</a>
-                    </div>
-                    <img src="images/365-days.jpg" alt="365 Days Artwork" class="release-image">
+                    <img src="images/wild-goose.jpg" alt="Wild Goose Artwork" class="release-image">
                 </li>
                 <li class="relative release-item">
                     <span class="release-text">Pale Light</span>
                     <div class="release-submenu">
                         <a href="https://soundcloud.com/cconnttacctto/sets/pale-light-with-clarice" class="release-submenu-item">soundcloud</a>
                         <a href="https://claricecontacto.bandcamp.com/album/pale-light" class="release-submenu-item">bandcamp</a>
-                        <a href="https://www.ninaprotocol.com/releases/clarice-contacto-pale-light" class="release-submenu-item">nina protocol</a>
+                        <a href="https://www.ninaprotocol.com/releases/clarice-contacto-pale-light" class="release-submenu-item">
+                            <span class="nina-desktop">nina</span>
+                            <span class="nina-mobile">nina protocol</span>
+                        </a>
                     </div>
                     <img src="images/Pale-Light.jpg" alt="Pale Light Artwork" class="release-image">
+                </li>
+                <li class="relative release-item days-365">
+                    <span class="release-text">365 days</span>
+                    <div class="release-submenu">
+                        <a href="https://soundcloud.com/cconnttacctto/365-days" class="release-submenu-item">soundcloud</a>
+                        <a href="https://www.ninaprotocol.com/releases/contacto-365-days" class="release-submenu-item">
+                            <span class="nina-desktop">nina</span>
+                            <span class="nina-mobile">nina protocol</span>
+                        </a>
+                    </div>
+                    <img src="images/365-days.jpg" alt="365 Days Artwork" class="release-image">
+                </li>
+                <li class="relative release-item enemy-water">
+                    <span class="release-text">enemy water</span>
+                    <div class="release-submenu">
+                        <a href="https://soundcloud.com/cconnttacctto/enemy-water" class="release-submenu-item">soundcloud</a>
+                        <a href="https://www.ninaprotocol.com/releases/contacto-enemy-water" class="release-submenu-item">
+                            <span class="nina-desktop">nina</span>
+                            <span class="nina-mobile">nina protocol</span>
+                        </a>
+                    </div>
+                    <img src="images/enemy-water.jpg" alt="Enemy Water Artwork" class="release-image">
+                </li>
+                <li class="relative release-item">
+                    <span class="release-text">ASTRAY</span>
+                    <div class="release-submenu">
+                        <a href="https://soundcloud.com/deardogs/sets/contacto-astray-dear003" class="release-submenu-item">soundcloud</a>
+                        <a href="https://deardogs.bandcamp.com/album/astray" class="release-submenu-item">bandcamp</a>
+                        <a href="https://www.ninaprotocol.com/releases/contacto-astray-cji7iioh8zxz" class="release-submenu-item">
+                            <span class="nina-desktop">nina</span>
+                            <span class="nina-mobile">nina protocol</span>
+                        </a>
+                    </div>
+                    <img src="images/ASTRAY.jpg" alt="ASTRAY Artwork" class="release-image">
                 </li>
             </ul>
         </div>
