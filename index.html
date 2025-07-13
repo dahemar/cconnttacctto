@@ -14,6 +14,7 @@
     <!-- TailwindCSS and Font Awesome -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="nav.css">
 
     <!-- Google Font: Diatype Variable -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -81,28 +82,6 @@
 
         .mobile-only {
             display: none; /* Hide mobile image by default */
-        }
-
-        /* Navigation Bar */
-        nav {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background-color: white;
-            padding: 16px 32px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            z-index: 10; /* Ensure the nav bar is above other elements */
-        }
-
-        .nav-item {
-            font-size: 24px;
-            font-weight: 300;
-            color: black;
-        }
-
-        .active-nav-item {
-            color: #e74c3c; /* Red color for the active nav item */
         }
 
         /* Mobile Fullscreen Image - Fixed and No Scrolling */
@@ -191,10 +170,6 @@
                 justify-content: center;
                 align-items: center;
             }
-
-            .nav-item {
-                font-size: 20px; /* Adjust nav size for mobile */
-            }
         }
 
         /* Desktop Images */
@@ -223,17 +198,6 @@
                 width: 100%; /* Make the image fill the container horizontally */
                 height: 100%; /* Make the image fill the container vertically */
                 object-fit: cover; /* Ensure the image covers the entire container */
-            }
-
-            .nav-item {
-                font-size: 48px; /* Larger font size for desktop */
-            }
-        }
-
-        /* Target older iphones */
-        @media (max-width: 375px) {
-            .nav-item {
-                font-size: 16px; /* Even smaller text for old iPhones */
             }
         }
     </style>
@@ -296,7 +260,7 @@
 
     <!-- Navigation Bar (Fixed at Bottom) -->
     <nav>
-        <ul class="flex items-center justify-between text-[24px] font-light sm:text-[48px]">
+        <ul class="flex items-center justify-between w-full font-light">
             <li>
                 <a href="index.html" class="nav-item text-red-600">spirit</a>
             </li>

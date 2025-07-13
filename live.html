@@ -6,6 +6,7 @@
     <title>Live - Contacto</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="nav.css">
 
     <!-- Google Font: Diatype Variable -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,68 +33,6 @@
             margin-bottom: 20px; /* Space between event details */
         }
         
-
-        /* Navigation Bar */
-        nav {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background-color: white;
-            padding: 16px 32px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            z-index: 10;
-        }
-
-        .nav-item {
-            font-size: 48px;
-            font-weight: 300;
-            color: black;
-        }
-
-        .active-nav-item {
-            color: #e74c3c; /* Red for the active nav item */
-        }
-
-        /* Ensure space between navigation items */
-        .nav-item + .nav-item {
-            margin-left: 30px;
-        }
-
-        /* Responsive Layout for Smaller Screens */
-        @media (max-width: 767px) {
-            body {
-                padding-bottom: 60px; /* Adjusted bottom padding for mobile */
-            }
-
-            .nav-item {
-                font-size: 20px; /* Smaller font size for mobile */
-            }
-
-            .content-container {
-                padding: 20px; /* Reduced padding on mobile */
-                overflow-y: auto; /* Allow vertical scrolling for mobile */
-            }
-
-            .content-container p {
-                font-size: 14px; /* Smaller text size for event details */
-                line-height: 1.5; /* Increased line spacing for readability */
-            }
-            
-
-            /* Stack navigation items vertically on mobile */
-            .nav-item + .nav-item {
-                margin-left: 0;
-                margin-top: 10px;
-            }
-        }
-
-         /* Target older iphones */
-        @media (max-width: 375px) {
-            .nav-item {
-                font-size: 16px; /* Even smaller text for old iPhones */
-            }
-        }
 
     </style>
 </head>
@@ -126,7 +65,7 @@
 
     <!-- Navigation Bar -->
     <nav>
-        <ul class="flex items-center justify-between text-[24px] font-light sm:text-[48px]">
+        <ul class="flex items-center justify-between w-full font-light">
             <li>
                 <a href="index.html" class="nav-item">spirit</a>
             </li>
