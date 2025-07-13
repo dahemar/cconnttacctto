@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Contacto</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <!-- Google Font: Diatype Variable -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Diatype+Variable:ital,wght@0,200..1000&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: "Diatype Variable", sans-serif;
+            font-weight: 300;
+            margin: 0;
+            padding-bottom: 80px; /* Space for the fixed navigation bar */
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+        }
+
+        .content-container {
+            padding: 40px;
+            text-align: center;
+            overflow-y: auto;
+        }
+
+        .contact-link {
+            margin-top: 100px;
+            font-size: 1.5em;
+            text-align: center;
+            display: block;
+            color: #000;
+            text-decoration: none;
+            word-break: break-all;
+        }
+        .contact-link:hover {
+            text-decoration: underline;
+            color: #000;
+        }
+
+        nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            padding: 16px 32px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+        }
+
+        .nav-item {
+            font-size: 48px;
+            font-weight: 300;
+            color: black;
+        }
+        .active-nav-item {
+            color: #e74c3c;
+        }
+        .nav-item + .nav-item {
+            margin-left: 30px;
+        }
+
+        @media (max-width: 767px) {
+            body {
+                padding-bottom: 60px;
+            }
+            .nav-item {
+                font-size: 20px;
+            }
+            .content-container {
+                padding: 20px;
+            }
+            .contact-link {
+                font-size: 1em;
+                margin-top: 60px;
+            }
+            .nav-item + .nav-item {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+        }
+        @media (max-width: 375px) {
+            .nav-item {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-white text-black">
+    <div class="content-container">
+        <a href="mailto:cconnttacctto@gmail.com" class="contact-link">cconnttacctto@gmail.com</a>
+    </div>
+
+    <nav>
+        <ul class="flex items-center justify-between text-[24px] font-light sm:text-[48px]">
+            <li>
+                <a href="index.html" class="nav-item">spirit</a>
+            </li>
+            <li>
+                <a href="recent-releases.html" class="nav-item">recent releases</a>
+            </li>
+            <li>
+                <a href="live.html" class="nav-item">live</a>
+            </li>
+            <li>
+                <a href="contact.html" class="nav-item text-red-600">contact</a>
+            </li>
+        </ul>
+    </nav>
+</body>
+</html> 
