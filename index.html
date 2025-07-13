@@ -123,7 +123,18 @@
                 position: fixed; /* Keep image fixed */
                 top: 0;
                 left: 0;
-                z-index: -1; /* Keep image behind other content */
+                z-index: 2; /* Asegura que esté por encima */
+            }
+
+            .mobile-only .slideshow-container {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                z-index: 2;
+                cursor: pointer;
+                pointer-events: auto;
             }
 
             .slideshow-container {
@@ -328,10 +339,21 @@
                             currentIndex = nextIndex;
                         }, 400);
                     } else {
-                        // Instant change without transition
-                        images[currentIndex].classList.remove("active");
+                        // Instant change: quitar transiciones CSS y clases
+                        images.forEach(img => {
+                            img.classList.remove("fade-in", "fade-out", "active");
+                            img.style.transition = 'none';
+                        });
                         currentIndex = (currentIndex + 1) % images.length;
                         images[currentIndex].classList.add("active");
+                        // Forzar reflow para aplicar el cambio sin transición
+                        void images[currentIndex].offsetWidth;
+                        // Restaurar transición CSS
+                        setTimeout(() => {
+                            images.forEach(img => {
+                                img.style.transition = '';
+                            });
+                        }, 20);
                     }
                 }
 
@@ -355,15 +377,15 @@
 
             // Mobile slideshow with click functionality
             const mobileSlideshowContainer = document.querySelector(".mobile-only .slideshow-container");
-            if (mobileSlideshowContainer) {
+            const mobileOnlyDiv = document.querySelector('.mobile-only');
+            if (mobileSlideshowContainer && mobileOnlyDiv) {
                 console.log('Mobile slideshow container found'); // Debug log
                 const mobileSlideshow = setupSlideshow(mobileSlideshowContainer);
                 
-                // Simple click handler for mobile
-                document.addEventListener('click', function(e) {
-                    // Check if click is within mobile slideshow area
-                    if (window.innerWidth < 768 && mobileSlideshowContainer.contains(e.target)) {
-                        console.log('Click detected in mobile slideshow area'); // Debug log
+                // Click handler en toda la pantalla móvil
+                mobileOnlyDiv.addEventListener('click', function(e) {
+                    if (window.innerWidth < 768) {
+                        console.log('Click detected in mobile-only area'); // Debug log
                         mobileSlideshow.changeImage(false); // Instant change on click
                     }
                 });
