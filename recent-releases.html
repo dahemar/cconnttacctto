@@ -32,23 +32,6 @@
             overflow-y: auto;
         }
 
-        nav {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background-color: white;
-            padding: 16px 32px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            z-index: 100;
-        }
-
-        .nav-item {
-            font-size: 32px;
-            font-weight: 300;
-            color: black;
-        }
-
         .release-item {
             display: inline-block;
             position: relative;
@@ -141,16 +124,6 @@
                 opacity: 1;
             }
 
-            .nav-item {
-                font-size: 20px;
-            }
-
-            .release-list {
-                display: flex; /* Mantiene flex en móvil para poder usar flex-direction */
-                flex-direction: column-reverse; /* Invierte el orden */
-                text-align: center;
-            }
-
             .release-item {
                 display: block;
                 text-align: center;
@@ -193,9 +166,6 @@
 
         /* Desktop-specific styling */
         @media (min-width: 768px) {
-            .nav-item {
-                font-size: 32px;
-            }
             
             /* Show "nina" on desktop, hide "nina protocol" */
             .nina-desktop {
@@ -209,7 +179,7 @@
 
         /* Target older iphones */
         @media (max-width: 375px) {
-            .nav-item {
+            .release-item {
                 font-size: 16px;
             }
         }
