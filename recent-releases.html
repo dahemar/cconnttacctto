@@ -179,6 +179,10 @@
             .nina-mobile {
                 display: none;
             }
+            /* Slightly reduce horizontal space between release items on desktop */
+            .release-item {
+                margin-right: 24px; /* reduced from 40px */
+            }
         }
 
         /* Target older iphones */
@@ -193,6 +197,18 @@
     <div class="content-container">
         <div class="min-h-screen flex justify-center items-center release-list">
             <ul class="text-[20px]">
+                <li class="relative release-item holding-a-dying-flame">
+                    <span class="release-text">holding a dying flame</span>
+                    <div class="release-submenu">
+                        <a href="https://soundcloud.com/deardogs/sets/contacto-holding-a-dying-flame" class="release-submenu-item">soundcloud</a>
+                        <a href="https://deardogs.bandcamp.com/album/holding-a-dying-flame" class="release-submenu-item">bandcamp</a>
+                        <a href="https://www.ninaprotocol.com/releases/contacto-holding-a-dying-flame" class="release-submenu-item">
+                            <span class="nina-desktop">nina</span>
+                            <span class="nina-mobile">nina protocol</span>
+                        </a>
+                    </div>
+                    <img src="images/holding-a-dying-flame.jpg" alt="Holding a Dying Flame Artwork" class="release-image">
+                </li>
                 <li class="relative release-item">
                     <span class="release-text">wild goose</span>
                     <div class="release-submenu">
@@ -248,7 +264,7 @@
                             <span class="nina-mobile">nina protocol</span>
                         </a>
                     </div>
-                    <img src="images/ASTRAY.jpg" alt="ASTRAY Artwork" class="release-image">
+                    <img src="images/astray.webp" alt="ASTRAY Artwork" class="release-image">
                 </li>
             </ul>
         </div>
